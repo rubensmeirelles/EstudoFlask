@@ -4,3 +4,5 @@ flask_migrate
 flask_wtf
 email_validator
 python-dotenv
+flask-login 
+flask-bcrypt
