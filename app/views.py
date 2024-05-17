@@ -15,7 +15,7 @@ def homepage():
     }
     return render_template("index.html", context=context)
 
-@app.route("/contato", methods=['GET', 'POST'])
+@app.route("/contato/", methods=['GET', 'POST'])
 def contato():
     form = ContatoForm()
     context = {}
@@ -40,10 +40,15 @@ def contatoLista():
     
     return render_template('contato_lista.html', context=context)
 
+@app.route('/contato/<int:id>/')
+def contatoDetail(id):
+    obj = Contato.query.get(id)
+    return render_template('contato_detail.html', obj=obj)
+
 
 # FORMATO NÃO RECOMENDADO
 
-@app.route("/contato_old", methods=['GET', 'POST'])
+@app.route("/contato_old/", methods=['GET', 'POST'])
 def contato_old():
     context = {}
     
