@@ -9,26 +9,32 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 
-<body>
+<body class="bg-dark text-white">
     <div class="container">
         <div class="row">
             <h2>Contato</h2>
-            <form class="row" action="" method="post">
+            <form class="row shadow p-4 border border-white" action="" method="post">
                 {{ form.csrf_token }}
 
-                {{ form.nome.label() }}
-                {{ form.nome() }}
-
-                {{ form.email.label() }}
-                {{ form.email() }}
-
-                {{ form.assunto.label() }}
-                {{ form.assunto() }}
-
-                {{ form.mensagem.label() }}
-                {{ form.mensagem() }}
-
-                {{ form.btnSubmit() }}
+                <div class="col-6">
+                    {{ form.nome.label() }}
+                    {{ form.nome(class="form-control") }}
+                </div>
+                <div class="col-6">
+                    {{ form.email.label() }}
+                    {{ form.email(class="form-control") }}
+                </div>
+                <div class="col-6">
+                    {{ form.assunto.label() }}
+                    {{ form.assunto(class="form-control") }}
+                </div>
+                <div class="col-6">
+                    {{ form.mensagem.label() }}
+                    {{ form.mensagem(class="form-control") }}
+                </div>
+                <div class="d-flex justify-content-end mt-4">
+                    {{ form.btnSubmit(class="btn btn-success") }}
+                </div>
 
 
             </form>
