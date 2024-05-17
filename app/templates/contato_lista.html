@@ -31,24 +31,20 @@
                   </tr>
                 </thead>
                 <tbody>
+                  {% for contato in context['dados'] %}
                   <tr>
-                    <th scope="row">{{ context['dados'][0].nome }}</th>
-                    <td>{{ context['dados'][0].email }}</td>
-                    <td>{{ context['dados'][0].assunto }}</td>
-                    <td>{{ context['dados'][0].respondido }}</td>
+                    <th scope="row">{{ contato.nome }}</th>
+                    <td>{{ contato.email }}</td>
+                    <td>{{ contato.assunto }}</td>
+                    <td>
+                      {% if contato.respondido == 0 %}
+                        Não
+                      {% else %}
+                        Sim
+                      {% endif %}
+                    </td>
                   </tr>
-                  <!-- <tr>
-                    <th scope="row">{{ context['dados'][1].nome }}</th>
-                    <td>{{ context['dados'][1].email }}</td>
-                    <td>{{ context['dados'][1].assunto }}</td>
-                    <td>{{ context['dados'][1].respondido }}</td>
-                  </tr>
-                  <tr>
-                    <th scope="row">{{ context['dados'][2].nome }}</th>
-                    <td>{{ context['dados'][2].email }}</td>
-                    <td>{{ context['dados'][2].assunto }}</td>
-                    <td>{{ context['dados'][2].respondido }}</td>
-                  </tr> -->
+                  {% endfor %}
                 </tbody>
               </table>
         </div>
